@@ -27,7 +27,7 @@ const LoginScreen = () => {
   const handleLogin = async () => {
     const returnObject = await axios({
       method: 'post',
-      url: 'http://localhost:3000/auth',
+      url: 'http://localhost:3000/users',
       data: {
         email: email,
         password: password,
