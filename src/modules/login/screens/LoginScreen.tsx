@@ -25,22 +25,21 @@ const LoginScreen = () => {
   };
 
   const handleLogin = async () => {
-    const returnObject = await axios({
+    await axios({
       method: 'post',
-      url: 'http://localhost:3000/users',
+      url: 'http://localhost:8080/auth',
       data: {
         email: email,
         password: password,
       },
     })
       .then((result) => {
-        alert('Fez login');
+        alert(`Fez login ${result.data.accessToken}`);
         return result.data;
       })
       .catch(() => {
         alert('Usuário ou senha invalido');
       });
-    console.log('returnObject', returnObject);
   };
   return (
     <ContainerLoginScreen>
