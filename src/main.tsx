@@ -15,7 +15,7 @@ const mainRoutes: RouteObject[] = [
   },
 ];
 
-const router: RemixRouter = createBrowserRouter([...mainRoutes, ...loginRoutes]);
+const router: RemixRouter = createBrowserRouter([...loginRoutes]);
 
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
   <React.StrictMode>
