@@ -6,6 +6,7 @@ import ReactDOM from 'react-dom/client';
 import { createBrowserRouter, RouteObject, RouterProvider } from 'react-router-dom';
 
 import { loginRoutes } from './modules/routes';
+import { GlobalProvider } from './shared/hooks/useGlobalContext';
 
 const mainRoutes: RouteObject[] = [
   {
@@ -15,10 +16,12 @@ const mainRoutes: RouteObject[] = [
   },
 ];
 
-const router: RemixRouter = createBrowserRouter([...loginRoutes]);
+const router: RemixRouter = createBrowserRouter([...mainRoutes, ...loginRoutes]);
 
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
   <React.StrictMode>
-    <RouterProvider router={router} />
+    <GlobalProvider>
+      <RouterProvider router={router} />
+    </GlobalProvider>
   </React.StrictMode>,
 );
