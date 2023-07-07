@@ -3,7 +3,10 @@ import { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 import { URL_USER } from '../../../shared/constants/urls';
-import { getAuthorizationToken, unsetAuthorizationToken } from '../../../shared/functions/connection/auth';
+import {
+  getAuthorizationToken,
+  unsetAuthorizationToken,
+} from '../../../shared/functions/connection/auth';
 import { ConnectionAPIGet } from '../../../shared/functions/connection/connectionAPI';
 import { LoginRoutesEnum } from '../../login/routes';
 import { ProductRoutesEnum } from '../../product/routes';
