@@ -1,5 +1,5 @@
 import type { Router as RemixRouter } from '@remix-run/router';
-import { createBrowserRouter, RouteObject, RouterProvider, useNavigate } from 'react-router-dom';
+import { createBrowserRouter, RouteObject, RouterProvider } from 'react-router-dom';
 
 import { firstScreenRoutes } from './modules/firstScreen/screens/routes';
 import { loginRoutes } from './modules/login/routes';
