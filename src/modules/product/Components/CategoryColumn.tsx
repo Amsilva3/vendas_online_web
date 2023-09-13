@@ -24,7 +24,7 @@ const CategoryColumn = ({ category }: CategoryColumnProps) => {
     return null;
   }
   const currentColor = colors[category.id - 1] || colors[0];
-  
+
   return <Tag color={currentColor}>{category.name}</Tag>;
 };
 export default CategoryColumn;
