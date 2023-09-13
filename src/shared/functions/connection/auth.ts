@@ -5,6 +5,7 @@ import { ConnectionAPIGet } from './connectionAPI';
 import { getItemStorage, removeItemStorage, setItemStorage } from './storageProxy';
 
 export const unsetAuthorizationToken = () => removeItemStorage(AUTHORIZATION_KEY);
+
 export const setAuthorizationToken = (token?: string) => {
   if (token) {
     setItemStorage(AUTHORIZATION_KEY, token);
@@ -17,11 +18,9 @@ export const verifyLoggedIn = async () => {
   if (!token) {
     location.href = '/login';
   }
-
   await ConnectionAPIGet<UserType>(URL_USER).catch(() => {
     unsetAuthorizationToken();
     location.href = '/login';
   });
-
   return null;
 };

@@ -1,6 +1,6 @@
 import { RouteObject } from 'react-router-dom';
 
-import Product from '../product/screens/Product';
+import Product from './screens/Product';
 
 export enum ProductRoutesEnum {
   PRODUCT = '/product',

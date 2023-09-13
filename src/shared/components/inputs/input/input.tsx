@@ -11,7 +11,6 @@ const Input = ({ title, margin, ...props }: InputProps) => {
   return (
     <BoxInput style={{ margin }}>
       {title && <TitleInput>{title}</TitleInput>}
-
       <InputAntd {...props} />
     </BoxInput>
   );

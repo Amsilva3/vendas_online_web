@@ -41,18 +41,23 @@ export default class ConnectionAPI {
     });
   }
 }
+
 export const ConnectionAPIGet = async <T>(url: string): Promise<T> => {
-  return ConnectionAPI.connect(url, MethodsEnum.GET);
+  return ConnectionAPI.connect<T>(url, MethodsEnum.GET);
 };
+
 export const ConnectionAPIDelete = async <T>(url: string): Promise<T> => {
-  return ConnectionAPI.connect(url, MethodsEnum.DELETE);
+  return ConnectionAPI.connect<T>(url, MethodsEnum.DELETE);
 };
+
 export const ConnectionAPIPost = async <T>(url: string, body: unknown): Promise<T> => {
-  return ConnectionAPI.connect(url, MethodsEnum.POST, body);
+  return ConnectionAPI.connect<T>(url, MethodsEnum.POST, body);
 };
+
 export const ConnectionAPIPut = async <T>(url: string, body: unknown): Promise<T> => {
-  return ConnectionAPI.connect(url, MethodsEnum.PUT, body);
+  return ConnectionAPI.connect<T>(url, MethodsEnum.PUT, body);
 };
+
 export const ConnectionPatch = async <T>(url: string, body: unknown): Promise<T> => {
-  return ConnectionAPI.connect(url, MethodsEnum.PATCH, body);
+  return ConnectionAPI.connect<T>(url, MethodsEnum.PATCH, body);
 };

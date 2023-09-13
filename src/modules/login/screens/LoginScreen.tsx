@@ -33,8 +33,6 @@ const LoginScreen = () => {
   };
   return (
     <ContainerLoginScreen>
-      <BackgroundImage src="./Background.png" />
-
       <ContainerLogin>
         <LimitedContainer>
           <SVGLogo />
@@ -54,6 +52,7 @@ const LoginScreen = () => {
           </Button>
         </LimitedContainer>
       </ContainerLogin>
+      <BackgroundImage src="./Background.png" />
     </ContainerLoginScreen>
   );
 };
