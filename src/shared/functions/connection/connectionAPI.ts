@@ -14,6 +14,7 @@ export default class ConnectionAPI {
         'Content-Type': 'application/json',
       },
     };
+
     switch (method) {
       case MethodsEnum.POST:
       case MethodsEnum.PUT:
