@@ -2,7 +2,7 @@ import { useState } from 'react';
 
 import Button from '../../../shared/components/buttons/button/Button';
 import SVGLogo from '../../../shared/components/icons/SVGLogo';
-import Input from '../../../shared/components/inputs/input/input';
+import Input from '../../../shared/components/inputs/input/Input';
 import { useRequests } from '../../../shared/hooks/useRequests';
 import {
   BackgroundImage,
@@ -31,6 +31,7 @@ const LoginScreen = () => {
       password: password,
     });
   };
+
   return (
     <ContainerLoginScreen>
       <ContainerLogin>
@@ -39,11 +40,11 @@ const LoginScreen = () => {
           <TitleLogin level={2} type="secondary">
             LOGIN
           </TitleLogin>
-          <Input title="Usuário:" margin="32px 0px 0px " onChange={handleEmail} value={email} />
+          <Input title="USUÁRIO" margin="32px 0px 0px" onChange={handleEmail} value={email} />
           <Input
             type="password"
-            title="Senha:"
-            margin="32px 0px 0px "
+            title="SENHA"
+            margin="32px 0px 0px"
             onChange={handlePassword}
             value={password}
           />
@@ -52,7 +53,7 @@ const LoginScreen = () => {
           </Button>
         </LimitedContainer>
       </ContainerLogin>
-      <BackgroundImage src="./Background.png" />
+      <BackgroundImage src="./background.png" />
     </ContainerLoginScreen>
   );
 };

@@ -49,7 +49,6 @@ export const useGlobalContext = () => {
       },
     });
   };
-
   const setUser = (user: UserType) => {
     setGlobalData({
       ...globalData,
@@ -61,7 +60,6 @@ export const useGlobalContext = () => {
     notification: globalData?.notification,
     user: globalData?.user,
     setUser,
-
     setNotification,
   };
 };

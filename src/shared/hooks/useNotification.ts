@@ -16,6 +16,7 @@ export const useNotification = () => {
       });
     }
   }, [notification]);
+
   return {
     api,
     contextHolder,

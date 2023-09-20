@@ -35,7 +35,6 @@ export const useDataContext = () => {
 
   return {
     products: data?.products || [],
-
     setProducts,
   };
 };

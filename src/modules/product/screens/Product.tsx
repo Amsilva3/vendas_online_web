@@ -7,8 +7,8 @@ import { MethodsEnum } from '../../../shared/enums/methods.enum';
 import { useDataContext } from '../../../shared/hooks/useDataContext';
 import { useRequests } from '../../../shared/hooks/useRequests';
 import { ProductType } from '../../../shared/types/ProductType';
-import CategoryColumn from '../Components/CategoryColumn';
-import TooltipImage from '../Components/TooltipImage';
+import CategoryColumn from '../components/CategoryColumn';
+import TooltipImage from '../components/TooltipImage';
 
 const columns: ColumnsType<ProductType> = [
   {
@@ -36,12 +36,15 @@ const columns: ColumnsType<ProductType> = [
     render: (text) => <a>{text}</a>,
   },
 ];
+
 const Product = () => {
   const { products, setProducts } = useDataContext();
   const { request } = useRequests();
+
   useEffect(() => {
     request<ProductType[]>(URL_PRODUCT, MethodsEnum.GET, setProducts);
   }, []);
+
   return <Table columns={columns} dataSource={products} />;
 };
 

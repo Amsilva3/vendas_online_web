@@ -1,7 +1,8 @@
-import { Typography } from 'antd';
+import { Space, Typography } from 'antd';
 import styled from 'styled-components';
 
-const { Text } = Typography;
+const { Text, Link } = Typography;
+
 export const BoxInput = styled.div`
   width: 100%;
 `;

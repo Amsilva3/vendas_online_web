@@ -8,6 +8,7 @@ export const ContainerLoginScreen = styled.div`
   display: flex;
   justify-content: right;
 `;
+
 export const BackgroundImage = styled.img`
   position: absolute;
   left: 0;
@@ -27,11 +28,12 @@ export const ContainerLogin = styled.div`
   align-items: center;
   justify-content: center;
   background-color: #d9d9d9;
+  padding: 22px;
   width: 100%;
   height: 100vh;
   max-width: 646px;
-  padding: 22px;
 `;
+
 export const LimitedContainer = styled.div`
   width: 100%;
   max-width: 498px;

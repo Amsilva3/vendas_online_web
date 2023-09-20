@@ -7,7 +7,7 @@ import { ERROR_INVALID_PASSWORD } from '../constants/errosStatus';
 import { URL_AUTH } from '../constants/urls';
 import { setAuthorizationToken } from '../functions/connection/auth';
 import ConnectionAPI, {
-  ConnectionAPIPost,
+  connectionAPIPost,
   MethodType,
 } from '../functions/connection/connectionAPI';
 import { useGlobalContext } from './useGlobalContext';
@@ -45,7 +45,7 @@ export const useRequests = () => {
     const navigate = useNavigate();
     setLoading(true);
 
-    await ConnectionAPIPost<AuthType>(URL_AUTH, body)
+    await connectionAPIPost<AuthType>(URL_AUTH, body)
       .then((result) => {
         setUser(result.user);
         setAuthorizationToken(result.accessToken);

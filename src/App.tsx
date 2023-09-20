@@ -2,7 +2,7 @@ import type { Router as RemixRouter } from '@remix-run/router';
 import { useEffect } from 'react';
 import { createBrowserRouter, RouteObject, RouterProvider } from 'react-router-dom';
 
-import { firstScreenRoutes } from './modules/firstScreen/screens/routes';
+import { firstScreenRoutes } from './modules/firstScreen/routes';
 import { loginRoutes } from './modules/login/routes';
 import { productScreens } from './modules/product/routes';
 import { URL_USER } from './shared/constants/urls';

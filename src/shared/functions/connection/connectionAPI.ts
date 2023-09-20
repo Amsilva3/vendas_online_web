@@ -43,22 +43,22 @@ export default class ConnectionAPI {
   }
 }
 
-export const ConnectionAPIGet = async <T>(url: string): Promise<T> => {
+export const connectionAPIGet = async <T>(url: string): Promise<T> => {
   return ConnectionAPI.connect<T>(url, MethodsEnum.GET);
 };
 
-export const ConnectionAPIDelete = async <T>(url: string): Promise<T> => {
+export const connectionAPIDelete = async <T>(url: string): Promise<T> => {
   return ConnectionAPI.connect<T>(url, MethodsEnum.DELETE);
 };
 
-export const ConnectionAPIPost = async <T>(url: string, body: unknown): Promise<T> => {
+export const connectionAPIPost = async <T>(url: string, body: unknown): Promise<T> => {
   return ConnectionAPI.connect<T>(url, MethodsEnum.POST, body);
 };
 
-export const ConnectionAPIPut = async <T>(url: string, body: unknown): Promise<T> => {
+export const connectionAPIPut = async <T>(url: string, body: unknown): Promise<T> => {
   return ConnectionAPI.connect<T>(url, MethodsEnum.PUT, body);
 };
 
-export const ConnectionPatch = async <T>(url: string, body: unknown): Promise<T> => {
+export const connectionAPIPatch = async <T>(url: string, body: unknown): Promise<T> => {
   return ConnectionAPI.connect<T>(url, MethodsEnum.PATCH, body);
 };
