@@ -1,9 +1,11 @@
 import { createContext, useContext, useState } from 'react';
 
+import { CategoryType } from '../types/CategoryType';
 import { ProductType } from '../types/ProductType';
 
 interface DataContext {
   products?: ProductType[];
+  categories?: CategoryType[];
 }
 
 interface DataContextProps {
@@ -26,6 +28,12 @@ export const DataProvider = ({ children }: DataProviderProps) => {
 export const useDataContext = () => {
   const { data, setData } = useContext(DataContext);
 
+  const setCategories = (categories: CategoryType[]) => {
+    setData({
+      ...data,
+      categories,
+    });
+  };
   const setProducts = (products: ProductType[]) => {
     setData({
       ...data,
@@ -35,6 +43,8 @@ export const useDataContext = () => {
 
   return {
     products: data?.products || [],
+    categories: data?.categories || [],
     setProducts,
+    setCategories,
   };
 };
