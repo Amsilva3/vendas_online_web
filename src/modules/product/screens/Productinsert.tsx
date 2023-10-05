@@ -16,6 +16,7 @@ import { useGlobalContext } from '../../../shared/hooks/useGlobalContext';
 import { useRequests } from '../../../shared/hooks/useRequests';
 import { ProductRoutesEnum } from '../routes';
 import { ProductInsertContainer } from '../styles/productinsert.style';
+import InputMoney from '../../../shared/components/inputs/inputMoney/InputMoney';
 
 const ProductInsert = () => {
   const [product, setProduct] = useState<InsertProduct>({
@@ -98,7 +99,7 @@ const ProductInsert = () => {
             title="Url imagem"
             placeholder="Url imagem"
           />
-          <Input
+          <InputMoney
             onChange={(event) => onChange(event, 'price', true)}
             value={product.price}
             margin="0px 0px 16px 0px"
