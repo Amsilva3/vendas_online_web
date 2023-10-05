@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 
 import Button from '../../../shared/components/buttons/button/Button';
 import Input from '../../../shared/components/inputs/input/Input';
+import InputMoney from '../../../shared/components/inputs/inputMoney/InputMoney';
 import Select from '../../../shared/components/inputs/select/Select';
 import Screen from '../../../shared/components/screen/Screen';
 import { DisplayFlexJustifyRight } from '../../../shared/components/styles/display.styled';
@@ -16,7 +17,6 @@ import { useGlobalContext } from '../../../shared/hooks/useGlobalContext';
 import { useRequests } from '../../../shared/hooks/useRequests';
 import { ProductRoutesEnum } from '../routes';
 import { ProductInsertContainer } from '../styles/productinsert.style';
-import InputMoney from '../../../shared/components/inputs/inputMoney/InputMoney';
 
 const ProductInsert = () => {
   const [product, setProduct] = useState<InsertProduct>({
