@@ -53,7 +53,7 @@ const LoginScreen = () => {
           </Button>
         </LimitedContainer>
       </ContainerLogin>
-      <BackgroundImage src="./background.png" />
+      <BackgroundImage src="./public/Background.png" />
     </ContainerLoginScreen>
   );
 };
