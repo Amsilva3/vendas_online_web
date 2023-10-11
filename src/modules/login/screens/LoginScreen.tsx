@@ -12,7 +12,6 @@ import {
   LimitedContainer,
   TitleLogin,
 } from '../styles/loginScreen.styles';
-import { Modal } from 'antd';
 
 const LoginScreen = () => {
   const navigate = useNavigate();
