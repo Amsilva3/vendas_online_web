@@ -10,7 +10,7 @@ export const ContainerMenu = styled.div`
   top: 0;
   bottom: 0;
   left: 0;
-  background-color: #14253d;
+  background-color: #001529;
 
   width: 240px;
 
