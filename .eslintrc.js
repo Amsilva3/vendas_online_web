@@ -1,9 +1,11 @@
 module.exports = {
   root: true,
+  parser: '@typescript-eslint/parser',
   env: {
     browser: true,
     es2021: true,
     node: true,
+    amd: true,
   },
   extends: [
     'eslint:recommended',
@@ -14,11 +16,10 @@ module.exports = {
   ],
   parserOptions: {
     ecmaVersion: 'latest',
+    sourceType: 'module',
     ecmaFeatures: {
       jsx: true,
     },
-    parser: '@typescript-eslint/parser',
-    sourceType: 'module',
   },
   plugins: ['@typescript-eslint', 'simple-import-sort', 'prettier'],
   rules: {
