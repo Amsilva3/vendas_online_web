@@ -5,6 +5,8 @@ import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 import Screen from '../../../shared/components/screen/Screen';
+import { DisplayFlexJustifyBetween } from '../../../shared/components/styles/display.styled';
+import { LimitedContainer } from '../../../shared/components/styles/limited.styled';
 import Table from '../../../shared/components/table/Table';
 import { URL_PRODUCT } from '../../../shared/constants/urls';
 import { MethodsEnum } from '../../../shared/enums/methods.enum';
@@ -15,7 +17,6 @@ import { ProductType } from '../../../shared/types/ProductType';
 import CategoryColumn from '../components/CategoryColumn';
 import TooltipImage from '../components/TooltipImage';
 import { ProductRoutesEnum } from '../routes';
-import { BoxButtons, LimiteSizeButton } from '../styles/Product.style';
 
 const columns: ColumnsType<ProductType> = [
   {
@@ -42,15 +43,6 @@ const columns: ColumnsType<ProductType> = [
     dataIndex: 'price',
     key: 'price',
     render: (_, product) => <a>{convertNumberToMoney(product.price)}</a>,
-  },
-];
-
-const listBreadcrumb = [
-  {
-    name: 'HOME',
-  },
-  {
-    name: 'PRODUTOS',
   },
 ];
 
@@ -81,16 +73,26 @@ const Product = () => {
     }
   };
   return (
-    <Screen listBreadcrumb={listBreadcrumb}>
-      <BoxButtons>
-        <LimiteSizeButton>
+    <Screen
+      listBreadcrumb={[
+        {
+          name: 'HOME',
+        },
+        {
+          name: 'PRODUTOS',
+        },
+      ]}
+    >
+      <DisplayFlexJustifyBetween margin="0px 0px 16px 0px">
+        <LimitedContainer width={240}>
           <Search placeholder="Buscar produto" onSearch={onSearch} enterButton />
-        </LimiteSizeButton>
-
-        <Button type="primary" onClick={handleOnClickInsert}>
-          Inserir
-        </Button>
-      </BoxButtons>
+        </LimitedContainer>
+        <LimitedContainer width={120}>
+          <Button type="primary" onClick={handleOnClickInsert}>
+            Inserir
+          </Button>
+        </LimitedContainer>
+      </DisplayFlexJustifyBetween>
 
       <Table columns={columns} dataSource={productsFiltered} />
     </Screen>
