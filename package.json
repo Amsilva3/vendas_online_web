@@ -63,6 +63,13 @@
     ],
     "collectCoverageFrom": [
       "<rootDir>/src/**/*.{js,ts,jsx,tsx}"
+    ],
+    "testMatch": [
+      "**/__tests__/**/*.[jt]s?(x)",
+      "**/?(*.)+(spec|test).[jt]s?(x)",
+  
+      "!**/headerTestIdEnum.ts",
+      "!**/inputTestIdEnum.ts"
     ]
   }
 }
