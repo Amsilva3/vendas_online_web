@@ -2,7 +2,7 @@ import { fireEvent, render } from '@testing-library/react';
 
 import { logout } from '../../../functions/connection/auth';
 import Header from '../Header';
-import { HeaderTestIdEnum } from './headerTestIdEnum';
+import { HeaderTestIdEnum } from './enum/headerTestIdEnum';
 
 jest.mock('react-router-dom', () => ({
   useNavigate: jest.fn(),
