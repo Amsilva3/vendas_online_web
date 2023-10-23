@@ -56,7 +56,6 @@
     "vite": "^4.3.9"
   },
   "pre-commit": "lint",
-  
   "jest": {
     "testEnvironment": "jest-environment-jsdom",
     "setupFilesAfterEnv": [
@@ -75,7 +74,6 @@
       "/node_modules/(?![@autofiy/autofiyable|@autofiy/property]).+\\.js$",
       "/node_modules/(?![@autofiy/autofiyable|@autofiy/property]).+\\.ts$",
       "/node_modules/(?![@autofiy/autofiyable|@autofiy/property]).+\\.tsx$"
-  ]
- 
+    ]
   }
 }
