@@ -10,6 +10,7 @@ import {
   DisplayFlexJustifyRight,
 } from '../../../shared/components/styles/display.styled';
 import { LimitedContainer } from '../../../shared/components/styles/limited.styled';
+import { CategoryType } from '../../../shared/types/CategoryType';
 import { useCategory } from '../../category/hooks/useCategory';
 import { ProductInsertTestIdEnum } from '../enum/ProductInsertTestIdEnum';
 import { useInsertProduct } from '../hooks/useInsertProduct';
@@ -77,7 +78,7 @@ const ProductInsert = () => {
             title="Categoria"
             margin="0px 0px 32px 0px"
             onChange={handleChangeSelect}
-            options={categories.map((category) => ({
+            options={categories.map((category: CategoryType) => ({
               value: `${category.id}`,
               label: `${category.name}`,
             }))}
