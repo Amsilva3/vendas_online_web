@@ -4,8 +4,10 @@ import { mockProductInsert } from '../../__mocks__/productInsert.mock';
 import { ProductInsertTestIdEnum } from '../../enum/ProductInsertTestIdEnum';
 import ProductInsert from '../ProductInsert';
 
+const mockNavigate = jest.fn();
+
 jest.mock('react-router-dom', () => ({
-  useNavigate: () => jest.fn(),
+  useNavigate: () => mockNavigate,
 }));
 jest.mock('../../../category/hooks/useCategory', () => ({
   useCategory: () => ({
@@ -15,6 +17,7 @@ jest.mock('../../../category/hooks/useCategory', () => ({
 
 let value = '';
 let type = '';
+const mockButtonInsert = jest.fn();
 
 jest.mock('../../hooks/useInsertProduct', () => ({
   useInsertProduct: () => ({
@@ -25,7 +28,7 @@ jest.mock('../../hooks/useInsertProduct', () => ({
       value = e.target.value;
       type = x;
     },
-    handleInsertProduct: jest.fn(),
+    handleInsertProduct: mockButtonInsert,
     handleChangeSelect: jest.fn(),
   }),
 }));
@@ -62,5 +65,17 @@ describe('Test Button', () => {
     fireEvent.change(input, { target: { value: 'http-image' } });
     expect(value).toEqual('http-image');
     expect(type).toEqual('image');
+  });
+  it('should call handleInsertProduct in click insert button', () => {
+    const { getByTestId } = render(<ProductInsert />);
+    const button = getByTestId(ProductInsertTestIdEnum.PRODUCT_BUTTON_INSERT);
+    fireEvent.click(button);
+    expect(mockButtonInsert).toBeCalled();
+  });
+  it('should call navigate in click cancel button', () => {
+    const { getByTestId } = render(<ProductInsert />);
+    const button = getByTestId(ProductInsertTestIdEnum.PRODUCT_BUTTON_CANCEL);
+    fireEvent.click(button);
+    expect(mockNavigate).toBeCalled();
   });
 });
