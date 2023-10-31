@@ -10,7 +10,7 @@ describe('storageProxy', () => {
   });
   it('should remove of localStorage', () => {
     localStorage.setItem(MOCK_KEY, MOCK_VALUE);
-    
+
     removeItemStorage(MOCK_KEY);
 
     expect(localStorage.getItem(MOCK_KEY)).toEqual(null);
