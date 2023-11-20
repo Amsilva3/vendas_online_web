@@ -2,7 +2,13 @@ import axios from 'axios';
 import MockAdapter from 'axios-mock-adapter';
 
 import { URL_AUTH } from '../../../constants/urls';
-import { connectionAPIDelete, connectionAPIGet, connectionAPIPatch, connectionAPIPost, connectionAPIPut } from '../connectionAPI';
+import {
+  connectionAPIDelete,
+  connectionAPIGet,
+  connectionAPIPatch,
+  connectionAPIPost,
+  connectionAPIPut,
+} from '../connectionAPI';
 
 const mockAxios = new MockAdapter(axios);
 const RETURN_VALUE = 'RETURN_VALUE';
