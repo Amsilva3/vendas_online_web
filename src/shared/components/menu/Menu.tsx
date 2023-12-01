@@ -13,8 +13,8 @@ import { useNavigate } from 'react-router-dom';
 import { CategoryRoutesEnum } from '../../../modules/category/routes';
 import { OrderRoutesEnum } from '../../../modules/orders/routes';
 import { ProductRoutesEnum } from '../../../modules/product/routes';
-import { ContainerLogoName, ContainerMenu, LogoMenu, NameCompany } from './menu.style';
 import { UserRoutesEnum } from '../../../modules/user/routes';
+import { ContainerLogoName, ContainerMenu, LogoMenu, NameCompany } from './menu.style';
 
 type MenuItem = Required<MenuProps>['items'][number];
 
