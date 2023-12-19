@@ -14,7 +14,7 @@ export const useUser = () => {
   }, []);
   useEffect(() => {
     setUsersFiltered(users);
-  }, []);
+  }, [users]);
 
   const handleOnChangeSearch = (value: string) => {
     if (!value) {
