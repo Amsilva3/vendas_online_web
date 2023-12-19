@@ -1,5 +1,5 @@
 import { Button } from 'antd';
-import Search from 'antd/es/input/Search';
+import { Input } from 'antd';
 import { ColumnsType } from 'antd/es/table';
 import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
@@ -17,6 +17,8 @@ import { useProductReducer } from '../../../store/reducers/productReducer/usePro
 import CategoryColumn from '../components/CategoryColumn';
 import TooltipImage from '../components/TooltipImage';
 import { ProductRoutesEnum } from '../routes';
+
+const { Search } = Input;
 
 const columns: ColumnsType<ProductType> = [
   {
