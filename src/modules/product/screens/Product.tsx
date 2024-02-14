@@ -1,14 +1,11 @@
 import { DeleteOutlined, EditOutlined } from '@ant-design/icons';
-import { Button } from 'antd';
+import { Button, Flex, Modal } from 'antd';
 import { Input } from 'antd';
 import { ColumnsType } from 'antd/es/table';
 import { useMemo } from 'react';
 
 import Screen from '../../../shared/components/screen/Screen';
-import {
-  DisplayFlex,
-  DisplayFlexJustifyBetween,
-} from '../../../shared/components/styles/display.styled';
+import { DisplayFlexJustifyBetween } from '../../../shared/components/styles/display.styled';
 import { LimitedContainer } from '../../../shared/components/styles/limited.styled';
 import Table from '../../../shared/components/table/Table';
 import { convertNumberToMoney } from '../../../shared/functions/money';
@@ -22,10 +19,13 @@ const { Search } = Input;
 const Product = () => {
   const {
     productsFiltered,
+    openModalDelete,
     handleOnClickInsert,
     onSearch,
     handleDeleteProduct,
     handleEditProduct,
+    handleCloseModalDelete,
+    handleOpenModalDelete,
   } = useProduct();
 
   const columns: ColumnsType<ProductType> = useMemo(
@@ -62,18 +62,18 @@ const Product = () => {
         key: 'x',
         render: (_, product) => (
           <LimitedContainer width={180}>
-            <DisplayFlex>
+            <Flex gap={16}>
               <Button onClick={() => handleEditProduct(product.id)} icon={<EditOutlined />}>
                 Editar
               </Button>
               <Button
                 danger
-                onClick={() => handleDeleteProduct(product.id)}
+                onClick={() => handleOpenModalDelete(product.id)}
                 icon={<DeleteOutlined />}
               >
                 Deletar
               </Button>
-            </DisplayFlex>
+            </Flex>
           </LimitedContainer>
         ),
       },
@@ -92,6 +92,16 @@ const Product = () => {
         },
       ]}
     >
+      <Modal
+        title="Atenção"
+        open={openModalDelete}
+        onOk={handleDeleteProduct}
+        onCancel={handleCloseModalDelete}
+        okText="Sim"
+        cancelText="Cancelar"
+      >
+        <p>Tem certeza que deseja excluir este produto?</p>
+      </Modal>
       <DisplayFlexJustifyBetween margin="0px 0px 16px 0px">
         <LimitedContainer width={240}>
           <Search placeholder="Buscar produto" onSearch={onSearch} enterButton />
