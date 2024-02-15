@@ -1,6 +1,7 @@
+import { DeleteOutlined, EditOutlined } from '@ant-design/icons';
+import { Flex, Modal } from 'antd';
 import Search from 'antd/es/input/Search';
 import { ColumnsType } from 'antd/es/table';
-import { useNavigate } from 'react-router-dom';
 
 import Button from '../../../shared/components/buttons/button/Button';
 import Screen from '../../../shared/components/screen/Screen';
@@ -9,35 +10,65 @@ import { LimitedContainer } from '../../../shared/components/styles/limited.styl
 import Table from '../../../shared/components/table/Table';
 import { CategoryType } from '../../../shared/types/CategoryType';
 import { useCategory } from '../hooks/useCategory';
-import { CategoryRoutesEnum } from '../routes';
 
-const columns: ColumnsType<CategoryType> = [
-  {
-    title: 'Id',
-    dataIndex: 'id',
-    key: 'id',
-    render: (text) => <a>{text}</a>,
-  },
-  {
-    title: 'Nome',
-    dataIndex: 'name',
-    key: 'name',
-    sorter: (a, b) => a.name.localeCompare(b.name),
-    render: (text) => <a>{text}</a>,
-  },
-  {
-    title: 'Produtos',
-    dataIndex: 'amountProducts',
-    key: 'amountProducts',
-    render: (text) => <a>{text}</a>,
-  },
-];
 const Category = () => {
-  const { categories, handleOnChangeSearch } = useCategory();
-  const navigate = useNavigate();
-  const handleOnClickCategory = () => {
-    navigate(CategoryRoutesEnum.CATEGORY_INSERT);
-  };
+  const {
+    categories,
+    openModalDelete,
+    handleOnChangeSearch,
+    handleOnClickCategory,
+    handleOpenModalDelete,
+    handleCloseModalDelete,
+    handleConfirmDeleteCategory,
+  } = useCategory();
+
+  const columns: ColumnsType<CategoryType> = [
+    {
+      title: 'Id',
+      dataIndex: 'id',
+      key: 'id',
+      render: (text) => <a>{text}</a>,
+    },
+    {
+      title: 'Nome',
+      dataIndex: 'name',
+      key: 'name',
+      sorter: (a, b) => a.name.localeCompare(b.name),
+      render: (text) => <a>{text}</a>,
+    },
+    {
+      title: 'Produtos',
+      dataIndex: 'amountProducts',
+      key: 'amountProducts',
+      render: (text) => <a>{text}</a>,
+    },
+    {
+      title: 'Ações',
+      dataIndex: '',
+      width: 240,
+      key: 'x',
+      render: (_, category) => (
+        <LimitedContainer width={180}>
+          <Flex>
+            <LimitedContainer margin="0px 16px 0px 0px" width={90}>
+              <Button onClick={() => null} icon={<EditOutlined />}>
+                Editar
+              </Button>
+            </LimitedContainer>
+            {category.amountProducts <= 0 && (
+              <Button
+                danger
+                onClick={() => handleOpenModalDelete(category.id)}
+                icon={<DeleteOutlined />}
+              >
+                Deletar
+              </Button>
+            )}
+          </Flex>
+        </LimitedContainer>
+      ),
+    },
+  ];
 
   return (
     <Screen
@@ -50,6 +81,16 @@ const Category = () => {
         },
       ]}
     >
+      <Modal
+        title="Atenção"
+        open={openModalDelete}
+        onOk={handleConfirmDeleteCategory}
+        onCancel={handleCloseModalDelete}
+        okText="Sim"
+        cancelText="Cancelar"
+      >
+        <p>Tem certeza que deseja excluir essa categoria?</p>
+      </Modal>
       <DisplayFlexJustifyBetween margin="0px 0px 16px 0px">
         <LimitedContainer width={240}>
           <Search placeholder="Buscar categoria" onSearch={handleOnChangeSearch} enterButton />
