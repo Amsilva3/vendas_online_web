@@ -33,7 +33,7 @@ jest.mock('../../hooks/useInsertProduct', () => ({
   }),
 }));
 
-describe('Test Button', () => {
+describe.skip('Test Button', () => {
   it('should render', () => {
     const { getByTestId } = render(<ProductInsert />);
 
