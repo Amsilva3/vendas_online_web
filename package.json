@@ -84,6 +84,5 @@
       "/node_modules/(?![@autofiy/autofiyable|@autofiy/property]).+\\.ts$",
       "/node_modules/(?![@autofiy/autofiyable|@autofiy/property]).+\\.tsx$"
     ]
-    
   }
 }
