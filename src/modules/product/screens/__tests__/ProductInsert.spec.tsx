@@ -33,7 +33,7 @@ jest.mock('../../hooks/useInsertProduct', () => ({
   }),
 }));
 
-describe.skip('Test Button', () => {
+describe('Test Button', () => {
   it('should render', () => {
     const { getByTestId } = render(<ProductInsert />);
 
@@ -44,6 +44,7 @@ describe.skip('Test Button', () => {
     expect(getByTestId(ProductInsertTestIdEnum.PRODUCT_INPUT_PRICE)).toBeDefined();
     expect(getByTestId(ProductInsertTestIdEnum.PRODUCT_INPUT_SELECT)).toBeDefined();
     expect(getByTestId(ProductInsertTestIdEnum.PRODUCT_INSERT_CONTAINER)).toBeDefined();
+    expect(getByTestId(ProductInsertTestIdEnum.PRODUCT_EDIT)).toBeDefined();
   });
   it('should call onChangeInput in change name', () => {
     const { getByTestId } = render(<ProductInsert />);
