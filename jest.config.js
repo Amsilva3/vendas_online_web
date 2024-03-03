@@ -24,6 +24,6 @@ module.exports = {
     '!<rootDir>/**/vite-env.d.ts',
     '!<rootDir>/**/main.tsx',
     '!<rootDir>/**/App.tsx',
-    '!**/inputTestIdEnum.ts',
+    //'!**/inputTestIdEnum.ts',
   ],
 };

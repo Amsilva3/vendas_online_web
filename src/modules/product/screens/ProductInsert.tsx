@@ -91,7 +91,6 @@ const ProductInsert = () => {
             />
             <DisplayFlex>
               <InputMoney
-                data-testid={ProductInsertTestIdEnum.PRODUCT_INPUT_IMAGE}
                 addonBefore="kg"
                 onChange={(event) => onChangeInput(event, 'weight', true)}
                 value={product.weight}
@@ -100,7 +99,6 @@ const ProductInsert = () => {
                 placeholder="Peso"
               />
               <InputMoney
-                data-testid={ProductInsertTestIdEnum.PRODUCT_INPUT_IMAGE}
                 addonBefore="cm"
                 onChange={(event) => onChangeInput(event, 'length', true)}
                 value={product.length}
@@ -111,7 +109,6 @@ const ProductInsert = () => {
             </DisplayFlex>
             <DisplayFlex>
               <InputMoney
-                data-testid={ProductInsertTestIdEnum.PRODUCT_INPUT_IMAGE}
                 addonBefore="cm"
                 onChange={(event) => onChangeInput(event, 'height', true)}
                 value={product.height}
@@ -120,7 +117,6 @@ const ProductInsert = () => {
                 placeholder="Altura"
               />
               <InputMoney
-                data-testid={ProductInsertTestIdEnum.PRODUCT_INPUT_IMAGE}
                 addonBefore="cm"
                 onChange={(event) => onChangeInput(event, 'width', true)}
                 value={product.width}
@@ -130,7 +126,6 @@ const ProductInsert = () => {
               />
             </DisplayFlex>
             <InputMoney
-              data-testid={ProductInsertTestIdEnum.PRODUCT_INPUT_IMAGE}
               addonBefore="cm"
               onChange={(event) => onChangeInput(event, 'diameter', true)}
               value={product.diameter}

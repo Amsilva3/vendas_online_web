@@ -5,10 +5,12 @@ import { ProductInsertTestIdEnum } from '../../enum/ProductInsertTestIdEnum';
 import ProductInsert from '../ProductInsert';
 
 const mockNavigate = jest.fn();
-
+const mockuseParams = jest.fn();
 jest.mock('react-router-dom', () => ({
   useNavigate: () => mockNavigate,
+  useParams: () => mockuseParams,
 }));
+
 jest.mock('../../../category/hooks/useCategory', () => ({
   useCategory: () => ({
     categories: [],
@@ -18,18 +20,22 @@ jest.mock('../../../category/hooks/useCategory', () => ({
 let value = '';
 let type = '';
 const mockButtonInsert = jest.fn();
+const mockButtonCancel = jest.fn();
 
 jest.mock('../../hooks/useInsertProduct', () => ({
   useInsertProduct: () => ({
     product: mockProductInsert,
     loading: false,
     disableButton: false,
+    isEdit: false,
+    loadingProduct: false,
     onChangeInput: (e: React.ChangeEvent<HTMLInputElement>, x: string) => {
       value = e.target.value;
       type = x;
     },
     handleInsertProduct: mockButtonInsert,
     handleChangeSelect: jest.fn(),
+    handleOnClickCancel: mockButtonCancel,
   }),
 }));
 
@@ -44,7 +50,6 @@ describe('Test Button', () => {
     expect(getByTestId(ProductInsertTestIdEnum.PRODUCT_INPUT_PRICE)).toBeDefined();
     expect(getByTestId(ProductInsertTestIdEnum.PRODUCT_INPUT_SELECT)).toBeDefined();
     expect(getByTestId(ProductInsertTestIdEnum.PRODUCT_INSERT_CONTAINER)).toBeDefined();
-    expect(getByTestId(ProductInsertTestIdEnum.PRODUCT_EDIT)).toBeDefined();
   });
   it('should call onChangeInput in change name', () => {
     const { getByTestId } = render(<ProductInsert />);
@@ -71,12 +76,12 @@ describe('Test Button', () => {
     const { getByTestId } = render(<ProductInsert />);
     const button = getByTestId(ProductInsertTestIdEnum.PRODUCT_BUTTON_INSERT);
     fireEvent.click(button);
-    expect(mockButtonInsert).toBeCalled();
+    expect(mockButtonInsert).toHaveBeenCalled();
   });
   it('should call navigate in click cancel button', () => {
     const { getByTestId } = render(<ProductInsert />);
     const button = getByTestId(ProductInsertTestIdEnum.PRODUCT_BUTTON_CANCEL);
     fireEvent.click(button);
-    expect(mockNavigate).toBeCalled();
+    expect(mockButtonCancel).toHaveBeenCalled();
   });
 });
